@@ -1,0 +1,66 @@
+<div class="container">
+  <!-- Tag Slider -->
+  <div class="row mb-3">
+    <div class="col">
+      <h3>Tag Slider</h3>
+      <app-tag-slider
+        [tags]="tags"
+        [selectedTag]="'All'"
+        (onSelect)="selectedTab($event)"
+      ></app-tag-slider>
+    </div>
+  </div>
+
+  <!-- Image Slider -->
+  <div class="row mb-3">
+    <div class="col">
+      <h3>Image Slider</h3>
+      <app-image-slider #imageslider [contentType]="'video'" [data]="videos">
+        <li
+          *ngFor="let d of videos; let i = index"
+          #item
+          (click)="imageslider.selectCard(i,item)"
+        >
+          <app-card
+            [title]="d.Title"
+            [description]="d.Body"
+            [type]="'video'"
+            [clickHandler]="openTutorialFn"
+            [imagePath]="d.ImagePath"
+            [isSlider]="true"
+            [url]="d.YoutubeUrl"
+            [docPath]="d.docPath"
+          >
+          </app-card>
+        </li>
+      </app-image-slider>
+    </div>
+  </div>
+
+  <!-- Doc Slider -->
+
+  <!-- <div class="row mb-3">
+    <div class="col">
+      <h3>Doc Slider</h3>
+      <app-image-slider
+        [contentType]="'document'"
+        [data]="docs"
+      ></app-image-slider>
+    </div>
+  </div> -->
+
+  <!-- Grid -->
+
+  <!-- <div class="card-list">
+    <div class="card-item" *ngFor="let t of list">
+      <app-card
+        [title]="d.Title"
+        [description]="d.Body"
+        [type]="'video'"
+        [imagePath]="d.ImagePath"
+        [docPath]="d.docPath"
+      >
+      </app-card>
+    </div>
+  </div> -->
+</div>

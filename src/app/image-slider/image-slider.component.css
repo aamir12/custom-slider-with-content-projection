@@ -1,0 +1,77 @@
+.scrollable-tabs-container {
+  background: transparent;
+  max-width: 100%;
+  margin: 0px auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollable-tabs-container svg {
+  width: 60px;
+  height: 60px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.scrollable-tabs-container ul {
+  display: flex;
+  gap: 16px;
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.scrollable-tabs-container ul.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.scrollable-tabs-container ul.dragging li {
+  cursor: grab;
+  user-select: none;
+}
+
+.scrollable-tabs-container ul::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-tabs-container .right-arrow,
+.scrollable-tabs-container .left-arrow {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  top: 0;
+  display: none;
+  align-items: center;
+  padding: 0 10px;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.5;
+}
+
+.scrollable-tabs-container .right-arrow.active,
+.scrollable-tabs-container .left-arrow.active {
+  display: flex;
+}
+
+.scrollable-tabs-container .left-arrow {
+  background: linear-gradient(to right, #f0f0f0 10%, transparent);
+}
+
+.scrollable-tabs-container .right-arrow {
+  right: 0;
+  background: linear-gradient(to left, #f0f0f0 10%, transparent);
+  justify-content: flex-end;
+}
+
+:host ::ng-deep .card:first-child {
+  padding-left: 0px !important;
+}

@@ -1,0 +1,42 @@
+.video .image-container:hover {
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.playIcon {
+  display: none;
+}
+
+.video:hover .playIcon {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.defaultSize {
+  width: 100%;
+  height: 180px;
+}
+
+.btn-download,
+.btn-download:hover {
+  background-color: #004990;
+  color: #fff;
+}
+
+.slider {
+  width: 300px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 675px) {
+  .card {
+    width: 300px;
+  }
+}

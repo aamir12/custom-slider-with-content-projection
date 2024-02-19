@@ -1,0 +1,44 @@
+<div
+  class="card border-0 bg-transparent px-0 h-100 d-flex flex-column"
+  [class.video]="type === 'video'"
+  [class.slider]="isSlider"
+>
+  <div class="position-relative" (click)="onClick()">
+    <!-- default image -->
+    <img
+      *ngIf="!imagePath"
+      class="card-img-top rounded defaultSize"
+      src="https://dummyimage.com/300x180&text=No%20Image"
+    />
+
+    <img
+      *ngIf="imagePath"
+      [src]="imagePath"
+      class="card-img-top rounded defaultSize"
+    />
+
+    <!-- play icon -->
+    <img
+      *ngIf="type === 'video'"
+      class="playIcon position-absolute top-50 start-50 translate-middle"
+      [src]="'assets/play.png'"
+    />
+  </div>
+
+  <div class="card-body px-0">
+    <h5 class="card-title fs-6 text-truncate" *ngIf="title" [title]="title">
+      {{ title }}
+    </h5>
+    <p
+      class="card-text fw-normal lh-base description"
+      *ngIf="description"
+      [title]="description"
+    >
+      {{ description }}
+    </p>
+  </div>
+
+  <div class="w-100 justify-content-end" *ngIf="docPath">
+    <a [href]="docPath" download class="btn btn-download w-100">Download</a>
+  </div>
+</div>

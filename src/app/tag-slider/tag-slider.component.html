@@ -1,0 +1,63 @@
+<ng-container *ngIf="tags.length > 0">
+  <div class="scrollable-tabs-container">
+    <div
+      class="left-arrow"
+      (click)="scrollLeft()"
+      [class.active]="showLeftArrow"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"
+        />
+      </svg>
+    </div>
+
+    <ul
+      #tabsList
+      (scroll)="manageIcons()"
+      (mousemove)="onMousemove($event)"
+      (mousedown)="onMousedown($event)"
+      [class.dragging]="isDragging"
+    >
+      <li
+        *ngFor="let tag of tags; let i = index"
+        #tagElement
+        (click)="selectTag(tag)"
+      >
+        <a href="javascript:void(0)" [class.active]="i === activeTabIndex">{{
+          tag
+        }}</a>
+      </li>
+    </ul>
+
+    <div
+      class="right-arrow"
+      (click)="scrollRight()"
+      [class.active]="showRightArrow"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </div>
+  </div>
+</ng-container>
