@@ -39,19 +39,42 @@
 
   <!-- Doc Slider -->
 
-  <!-- <div class="row mb-3">
+   <div class="row mb-3">
     <div class="col">
       <h3>Doc Slider</h3>
       <app-image-slider
+        #docslider
         [contentType]="'document'"
         [data]="docs"
-      ></app-image-slider>
+      >
+    
+    
+      <li
+      *ngFor="let d of docs; let i = index"
+      #docitem
+      (click)="docslider.selectCard(i,docitem)"
+    >
+      <app-card
+        [title]="d.Title"
+        [description]="d.Body"
+        [type]="'document'"
+        [clickHandler]="openTutorialFn"
+        [imagePath]="d.ImagePath"
+        [isSlider]="true"
+        [url]="d.YoutubeUrl"
+        [docPath]="d.docPath"
+      >
+      </app-card>
+    </li>
+    
+    
+    </app-image-slider>
     </div>
-  </div> -->
+  </div> 
 
   <!-- Grid -->
 
-  <!-- <div class="card-list">
+   <div class="card-list">
     <div class="card-item" *ngFor="let t of list">
       <app-card
         [title]="d.Title"
@@ -62,5 +85,5 @@
       >
       </app-card>
     </div>
-  </div> -->
+  </div> 
 </div>
